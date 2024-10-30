@@ -1,5 +1,9 @@
 export function initTasks() {
     const taskForm = document.getElementById('taskForm');
+    const createTaskBtn = document.getElementById('createTaskBtn');
+    const editTaskBtn = document.getElementById('editTaskBtn');
+
+
     const successMessage = document.getElementById('successMessage');
     const errorMessage = document.getElementById('errorMessage');
 
@@ -19,7 +23,10 @@ export function initTasks() {
         taskForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             
+            const taskId = document.getElementById('taskId').value;
+            const isEdit = taskId !== ''; 
             const taskData = {
+                id: taskId, 
                 titulo: document.getElementById('taskTitle').value,
                 fechaFin: document.getElementById('taskDueDate').value,
                 prioridad: document.getElementById('taskPriority').value,
@@ -30,38 +37,42 @@ export function initTasks() {
                     id_estudiante: userId
                 }
             };
-
+        
             try {
-                const response = await fetch('http://localhost:8080/tareas/registrar', {
-                    method: 'POST',
+                const url = isEdit 
+                    ? `http://localhost:8080/tareas/actualizar` 
+                    : `http://localhost:8080/tareas/registrar`;
+                const method = isEdit ? 'PUT' : 'POST';
+        
+                const response = await fetch(url, {
+                    method: method,
                     headers: {
                         'Content-Type': 'application/json',
                         'Accept': 'application/json'
                     },
                     body: JSON.stringify(taskData)
                 });
-
+        
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
-
+        
                 const result = await response.text();
-                if (result === 'Tarea guardada') {
-                    showMessage(successMessage, 'Tarea guardada correctamente!');
+                if ((isEdit && result === 'Tarea actualizada') || (!isEdit && result === 'Tarea guardada')) {
+                    showMessage(successMessage, isEdit ? 'Tarea actualizada correctamente!' : 'Tarea guardada correctamente!');
+                    window.location.reload();
                     taskForm.reset();
-                    loadCategories(); 
+                    loadCategories();
                 } else {
                     throw new Error('error inesperado');
                 }
             } catch (error) {
-                console.error('Error saving task:', error);
-                showMessage(errorMessage, 'Failed to save task. Please try again.');
+                console.error('Error al guardar o actualizar la tarea:', error);
+                showMessage(errorMessage, 'Error en el proceso. Inténtalo de nuevo.');
             }
         });
     }
-}
-
-
+}        
 
 async function obtenerTareas() {
     const userId = localStorage.getItem('userId');
@@ -110,7 +121,7 @@ function mostrarTareas(data) {
                 <td>
                     <button class="btn btn-danger" onclick="borrarTarea(${tarea.id})">Eliminar</button>
                     <button class="btn btn-primary" onclick="marcarTareaCompletada(${tarea.id})">Completada</button>
-                    <button class="btn btn-primary" onclick="editarTarea(${tarea})">Editar</button>
+                    <button class="btn btn-primary" onclick="editarTarea('${tarea.id}', '${tarea.titulo}', '${tarea.fechaFin}', '${tarea.prioridad}', '${tarea.categoria.id_categoria}', '${tarea.estudiante.id_estudiante}')">Editar</button>
                 </td>
             </tr>
         `;
@@ -203,13 +214,11 @@ window.marcarTareaCompletada = async function(id) {
     }
 }
 
-window.editarTarea = async function(tarea) {
-
-    document.getElementById('taskTitle').value = tarea.titulo;
-    document.getElementById('taskDueDate').value = tarea.fechaFin;
-    document.getElementById('taskPriority').value = tarea.prioridad;
-    document.getElementById('taskCategory').value = tarea.categoria.id_categoria;
-    
-
+window.editarTarea = async function(id, titulo, fechaFin, prioridad, categoriaId) {
+    document.getElementById('taskId').value = id; 
+    document.getElementById('taskTitle').value = titulo;
+    document.getElementById('taskDueDate').value = fechaFin;
+    document.getElementById('taskPriority').value = prioridad;
+    document.getElementById('taskCategory').value = categoriaId;
 }
     
