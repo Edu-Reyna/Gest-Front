@@ -12,8 +12,10 @@
     "vite": "^5.4.9"
   },
   "dependencies": {
-    "bootstrap": "^5.3.2",
     "@fullcalendar/core": "^6.1.10",
-    "@fullcalendar/daygrid": "^6.1.10"
+    "@fullcalendar/daygrid": "^6.1.10",
+    "@fullcalendar/list": "^6.1.15",
+    "@fullcalendar/timegrid": "^6.1.15",
+    "bootstrap": "^5.3.2"
   }
 }

@@ -1,7 +1,7 @@
+let tareas = [];
+
 export function initTasks() {
     const taskForm = document.getElementById('taskForm');
-    const createTaskBtn = document.getElementById('createTaskBtn');
-    const editTaskBtn = document.getElementById('editTaskBtn');
 
 
     const successMessage = document.getElementById('successMessage');
@@ -98,8 +98,9 @@ async function obtenerTareas() {
             throw new Error('Error al obtener los datos');
         }
 
-        const data = await response.json();
-        mostrarTareas(data);
+        tareas = await response.json();
+
+        mostrarTareas(tareas);
     } catch (error) {
         console.error(error);
     }
@@ -222,3 +223,18 @@ window.editarTarea = async function(id, titulo, fechaFin, prioridad, categoriaId
     document.getElementById('taskCategory').value = categoriaId;
 }
     
+
+window.ordenarPorCategoria = function() {
+    const tareasOrdenadas = tareas.slice().sort((a, b) => {
+        return a.categoria.tipo_categoria.localeCompare(b.categoria.tipo_categoria);
+    });
+    mostrarTareas(tareasOrdenadas);
+};
+
+// Función para ordenar por prioridad
+window.ordenarPorPrioridad = function() {
+    const tareasOrdenadas = tareas.slice().sort((a, b) => {
+        return a.prioridad.localeCompare(b.prioridad);
+    });
+    mostrarTareas(tareasOrdenadas);
+};

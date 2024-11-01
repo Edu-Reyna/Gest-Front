@@ -32,11 +32,11 @@
             </div>
         </div>
     </nav>
-
     <div class="container mt-4">
         <div class="row">
-            <div class="col-lg-4">
-                <div class="card shadow-sm">
+            <!-- Columna para crear nueva tarea -->
+            <div class="col-lg-3 mt-lg-0-custom mb-4"> <!-- Reducido el ancho de la columna a 3 -->
+                <div class="ivTask card shadow-sm">
                     <div class="card-header bg-primary text-white">
                         <h5 class="card-title mb-0">Create New Task</h5>
                     </div>
@@ -75,22 +75,29 @@
                                 <input type="number" class="form-control d-none" id="taskId">
                             </div>
                             <button type="submit" id="createTaskBtn" class="btn btn-primary w-100">Crear Tarea</button>
-                            <button type="click" id="updateTaskBtn" class="btn btn-secondary w-100 mt-2">Guardar Cambios</button>
+                            <button type="button" id="updateTaskBtn" class="btn btn-secondary w-100 mt-2">Guardar Cambios</button>
                         </form>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-8 mt-4 mt-lg-0">
+    
+            <!-- Columna para la lista de tareas -->
+            <div class="col-lg-9 mt-4 mt-lg-0-custom"> <!-- Ajustado el ancho de la columna a 9 -->
                 <h2 class="mb-3">Lista Tareas</h2>
+                <div class="d-flex justify-content-end mb-3">
+                    <button class="btn btn-primary me-2">Ordenar por Prioridad</button>
+                    <button class="btn btn-secondary">Ordenar por Categoría</button>
+                </div>
+    
                 <div class="table-responsive">
                     <table class="table table-striped table-hover">
                         <thead class="table-primary">
                             <tr>
-                                <th>titulo</th>
+                                <th>Título</th>
                                 <th>Fecha de entrega</th>
                                 <th>Prioridad</th>
-                                <th>Stado</th>
-                                <th>Categoria</th>
+                                <th>Estado</th>
+                                <th>Categoría</th>
                                 <th>Acciones</th>
                             </tr>
                         </thead>
@@ -101,6 +108,8 @@
             </div>
         </div>
     </div>
+    
+
 
     <script type="module" src="/src/main.js"></script>
 </body>
