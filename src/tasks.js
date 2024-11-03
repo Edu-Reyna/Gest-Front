@@ -130,11 +130,12 @@ function mostrarTareas(data) {
 }
 
 async function loadCategories() {
+    const userId = localStorage.getItem('userId');
     const categorySelect = document.getElementById('taskCategory');
     if (!categorySelect) return;
 
     try {
-        const response = await fetch('http://localhost:8080/categorias/lista', {
+        const response = await fetch(`http://localhost:8080/categorias/lista/${userId}`, {
             method: 'GET',
             headers: {
                 'Accept': 'application/json'

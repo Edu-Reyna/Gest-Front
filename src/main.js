@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-// Sort functions
 
 // Initialize Bootstrap components
 const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')

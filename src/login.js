@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
             if (!response.ok) {
-                throw new Error('Login failed');
+                throw new Error('Fallo al iniciar sesión');
             }
 
             const userId = await response.text();
