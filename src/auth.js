@@ -1,11 +1,4 @@
 export function initAuth() {
-    const isLoggedIn = localStorage.getItem('isLoggedIn');
-    const userId = localStorage.getItem('userId');
-    
-    if ((!isLoggedIn || !userId) && window.location.pathname !== '/login.html') {
-        window.location.href = '/login.html';
-        return;
-    }
 
     const logoutBtn = document.getElementById('logoutBtn');
     if (logoutBtn) {

@@ -239,3 +239,39 @@ window.ordenarPorPrioridad = function() {
     });
     mostrarTareas(tareasOrdenadas);
 };
+
+async function anadirCategoria() {
+    const userId = localStorage.getItem('userId');
+
+    document.getElementById("saveCategoryBtn").addEventListener("click", async function() {
+        const category = document.getElementById("categoryInput").value;
+
+        const categoria = {
+            tipo_categoria: category,
+            estudiante : {
+                id_estudiante: userId
+            }
+        };
+
+        try {
+            const response = await fetch(`http://localhost:8080/categorias/registrar`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(categoria)
+            });
+
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+
+            location.reload();
+        } catch (err) {
+            console.error('Error al añadir la categoría: ', err);
+        }
+    });
+}
+
+anadirCategoria();

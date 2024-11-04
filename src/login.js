@@ -1,42 +1,39 @@
-import { initAuth } from './auth.js';
+loginForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
 
-document.addEventListener('DOMContentLoaded', () => {
-    const loginForm = document.getElementById('loginForm');
-    const errorMessage = document.getElementById('errorMessage');
-    
-    loginForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const email = document.getElementById('email').value;
-        const password = document.getElementById('password').value;
+    const estudiante = { email: email, contrasena: password };
 
-        const estudiante = {email: email, contrasena: password};
+    try {
+        const response = await fetch("http://localhost:8080/login", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(estudiante)
+        });
 
-        try {
-            const response = await fetch("http://localhost:8080/login", {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(estudiante)
-            });
 
-            if (!response.ok) {
-                throw new Error('Fallo al iniciar sesión');
-            }
+        if (!response.ok) {
+            throw new Error('Fallo al iniciar sesión');
+        }
 
-            const userId = await response.text();
-            
-            // Store the user ID and login status
-            const id = parseInt(userId);
-            localStorage.setItem('userId', id);
+        const userId = await response.text();
+        
+        if (userId) {
+            localStorage.setItem('userId', parseInt(userId));
             localStorage.setItem('isLoggedIn', 'true');
             
-            // Redirect to dashboard
             window.location.href = '/index.html';
-        } catch (error) {
-            errorMessage.textContent = 'Invalid email or password';
+        } else {
+
+            errorMessage.textContent = 'Correo electrónico o contraseña incorrectos';
             errorMessage.style.display = 'block';
-            console.error('Login error:', error);
         }
-    });
+    } catch (error) {
+        errorMessage.textContent = 'Correo electrónico o contraseña incorrectos';
+        errorMessage.style.display = 'block';
+        console.error('Login error:', error);
+    }
 });
