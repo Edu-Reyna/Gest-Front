@@ -122,7 +122,7 @@ button:focus-visible {
   left: 15px; /* Ajusta la distancia desde la izquierda */
 
   /* Ajuste de ancho y espaciado */
-  width: 80%; /* Ajusta el ancho según lo necesario */
+  width: 20%; /* Ajusta el ancho según lo necesario */
   margin: 0 auto; /* Centra horizontalmente */
 
   /* Estilos adicionales */
@@ -131,6 +131,8 @@ button:focus-visible {
   border-radius: 8px; /* Bordes redondeados */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
 }
+
+
 
 /* Estilo para la tabla de tareas */
 .table-responsive table {
