@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav class="navbar navbar-expand-lg navbar-dark">
         <div class="container">
             <a class="navbar-brand" href="index.html">Task Manager</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -79,7 +79,11 @@
                         </form>
                     </div>
                 </div>
+                <div class="text-center mt-3">
+                    <img src="icono_cubo.png" alt="Descripción de la imagen" class="img-fluid">
+                </div>
             </div>
+            
     
             <!-- Columna para la lista de tareas -->
             <div class="col-lg-9 mt-4 mt-lg-0-custom"> <!-- Ajustado el ancho de la columna a 9 -->
@@ -88,7 +92,7 @@
                     <button type="button" class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#addCategoryModal">
                         Añadir Categoría
                     </button>
-                    <button class="btn btn-primary me-2" onclick="ordenarPorPrioridad()">Ordenar por Prioridad</button>
+                    <button class="btn btn-success me-2" onclick="ordenarPorPrioridad()">Ordenar por Prioridad</button>
                     <button class="btn btn-secondary" onclick="ordenarPorCategoria()">Ordenar por Categoría</button>
                 </div>
     
