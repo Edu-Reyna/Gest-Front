@@ -4,115 +4,105 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Documentación</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-        .container {
-            display: flex;
-            margin: 20px;
-        }
-        .sidebar {
-            width: 20%;
-            border-right: 1px solid #ccc;
-            padding: 20px;
-            background-color: #f8f9fa; /* Fondo claro */
-        }
-        .content {
-            width: 75%;
-            padding: 20px;
-            background-color: #f0f0f0;
-            border-radius: 8px;
-        }
-        .sidebar h2 {
-            font-size: 18px;
-            margin-bottom: 10px;
-            color: #007bff;
-        }
-        .btn-group button {
-            margin: 10px 0;
-            font-size: 16px;
-        }
-        .content h2 {
-            font-size: 22px;
-            margin-bottom: 20px;
-            color: #007bff;
-        }
-        .content p, .content li {
-            font-size: 16px;
-            line-height: 1.6;
-        }
-        .content img {
-            width: 200px;
-            height: auto;
-        }
-    </style>
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <!-- Sidebar -->
-        <div class="sidebar">
-            <h2>Documentación</h2>
-            <div class="btn-group d-flex flex-column">
-                <button class="btn btn-primary" onclick="showContent('area-ayuda')">Área de Ayuda</button>
-                <button class="btn btn-primary" onclick="showContent('tecnologias-utilizadas')">Tecnologías Utilizadas</button>
-                <button class="btn btn-primary" onclick="showContent('objetivo-aplicacion')">Objetivo de la Aplicación</button>
+    
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Task Manager</a>
+            <img src="icono_cubo.png" alt="Descripción de la imagen" class="img-fluid" style="max-width: 20px; height: auto;">  
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Tareas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="calendar.html">Calendario</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="docu.html">Documentación</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="logoutBtn">Logout</a>
+                    </li>
+                </ul>
             </div>
         </div>
+    </nav>
 
-        <!-- Content Area -->
-        <div class="content">
-            <!-- Área de Ayuda -->
-            <div id="area-ayuda" class="section" style="display: block;">
-                <h2>Área de Ayuda</h2>
-                <p>Aquí te explicaremos cómo utilizar todas las funcionalidades de esta aplicación para gestionar tus tareas y asignaciones de manera eficiente.</p>
-                <ol>
-                    <li><strong>Crear una Nueva Tarea</strong>
-                        <p>Paso a paso para crear una tarea: Haz clic en el botón "Crear nueva tarea". Completa los campos, como el nombre de la asignación, fecha de la asignación, tipo de prioridad y categoría. Finalmente, haz clic en "Crear tarea".</p>
-                    </li>
-                    <li><strong>Gestionar Tareas Activas</strong>
-                        <p>Las tareas que has creado se muestran en una tabla con el título, fecha de entrega, prioridad, estado y categoría. Puedes eliminar, editar o marcar como completadas las tareas.</p>
-                    </li>
-                    <li><strong>Editar Tareas</strong>
-                        <p>Haz clic en "Editar" para modificar una tarea existente y realiza los cambios necesarios. No olvides guardar.</p>
-                    </li>
-                    <li><strong>Eliminar una Tarea</strong>
-                        <p>Para eliminar una tarea, localízala en la tabla de tareas activas y haz clic en "Eliminar". Se te pedirá confirmación.</p>
-                    </li>
-                    <li><strong>Marcar una Tarea como Completada</strong>
-                        <p>Haz clic en "Completado" junto a la tarea. La tarea será marcada como terminada y se gestionará de acuerdo a su nuevo estado.</p>
-                    </li>
-                </ol>
+    <div class="container mt-4">
+        <div class="row">
+            <!-- Sidebar -->
+            <div class="col-md-3">
+                <div class="bg-light p-3 rounded">
+                    <h2 class="h5 text-primary">Documentación</h2>
+                    <div class="btn-group d-flex flex-column">
+                        <button class="btn btn-primary mb-2" onclick="showContent('area-ayuda')">Área de Ayuda</button>
+                        <button class="btn btn-primary mb-2" onclick="showContent('tecnologias-utilizadas')">Tecnologías Utilizadas</button>
+                        <button class="btn btn-primary mb-2" onclick="showContent('objetivo-aplicacion')">Objetivo de la Aplicación</button>
+                    </div>
+                </div>
             </div>
 
-            <!-- Tecnologías Utilizadas -->
-            <div id="tecnologias-utilizadas" class="section" style="display: none;">
-                <h2>Tecnología Utilizada en la Aplicación</h2>
-                <h3>Backend:</h3>
-                <ul>
-                    <li><strong>Java con Spring Boot:</strong> Usamos el framework Spring Boot para desarrollar la lógica del backend de la aplicación. Esto nos permite gestionar las solicitudes de los usuarios, procesar los datos y comunicarnos con la base de datos de manera eficiente.</li>
-                    <li><strong>Base de Datos MySQL:</strong> Los datos de las tareas y asignaciones se almacenan en una base de datos MySQL, lo que garantiza una estructura sólida para manejar la información de manera segura y escalable.</li>
-                </ul>
-                <h3>Frontend:</h3>
-                <ul>
-                    <li><strong>HTML, CSS y JavaScript:</strong> La interfaz de la aplicación está desarrollada con HTML para la estructura, CSS para los estilos y JavaScript para la funcionalidad interactiva. Esto asegura una experiencia fluida y atractiva para los usuarios.</li>
-                    <li><strong>Bootstrap:</strong> Utilizamos Bootstrap como framework de diseño para lograr un estilo moderno y responsivo en toda la aplicación, adaptando la interfaz a diferentes dispositivos y resoluciones de pantalla.</li>
-                    <li><strong>Librería FullCalendar:</strong> El calendario que ves en la aplicación es generado utilizando la librería FullCalendar, que permite visualizar las tareas y asignaciones de una manera organizada y fácil de gestionar.</li>
-                </ul>
-            </div>
+            <!-- Content Area -->
+            <div class="col-md-9">
+                <div class="bg-light p-3 rounded">
+                    <!-- Área de Ayuda -->
+                    <div id="area-ayuda" class="section" style="display: block;">
+                        <h2 class="h4 text-primary">Área de Ayuda</h2>
+                        <p>Aquí te explicaremos cómo utilizar todas las funcionalidades de esta aplicación para gestionar tus tareas y asignaciones de manera eficiente.</p>
+                        <ol>
+                            <li><strong>Crear una Nueva Tarea</strong>
+                                <p>Paso a paso para crear una tarea: Haz clic en el botón "Crear nueva tarea". Completa los campos, como el nombre de la asignación, fecha de la asignación, tipo de prioridad y categoría. Finalmente, haz clic en "Crear tarea".</p>
+                            </li>
+                            <li><strong>Gestionar Tareas Activas</strong>
+                                <p>Las tareas que has creado se muestran en una tabla con el título, fecha de entrega, prioridad, estado y categoría. Puedes eliminar, editar o marcar como completadas las tareas.</p>
+                            </li>
+                            <li><strong>Editar Tareas</strong>
+                                <p>Haz clic en "Editar" para modificar una tarea existente y realiza los cambios necesarios. No olvides guardar.</p>
+                            </li>
+                            <li><strong>Eliminar una Tarea</strong>
+                                <p>Para eliminar una tarea, localízala en la tabla de tareas activas y haz clic en "Eliminar". Se te pedirá confirmación.</p>
+                            </li>
+                            <li><strong>Marcar una Tarea como Completada</strong>
+                                <p>Haz clic en "Completado" junto a la tarea. La tarea será marcada como terminada y se gestionará de acuerdo a su nuevo estado.</p>
+                            </li>
+                        </ol>
+                    </div>
 
-            <!-- Objetivo de la Aplicación -->
-            <div id="objetivo-aplicacion" class="section" style="display: none;">
-                <h2>Objetivo de la Aplicación</h2>
-                <p>Nuestra aplicación de cronograma está diseñada para ayudarte a tomar el control de tus tareas personales y profesionales de manera simple y eficiente. Ya sea una próxima reunión, una tarea importante o un evento personal, nuestra herramienta te permitirá gestionar cada asignación y mantenerte al día con tus compromisos.</p>
+                    <!-- Tecnologías Utilizadas -->
+                    <div id="tecnologias-utilizadas" class="section" style="display: none;">
+                        <h2 class="h4 text-primary">Tecnología Utilizada en la Aplicación</h2>
+                        <h3 class="h5">Backend:</h3>
+                        <ul>
+                            <li><strong>Java con Spring Boot:</strong> Usamos el framework Spring Boot para desarrollar la lógica del backend de la aplicación. Esto nos permite gestionar las solicitudes de los usuarios, procesar los datos y comunicarnos con la base de datos de manera eficiente.</li>
+                            <li><strong>Base de Datos MySQL:</strong> Los datos de las tareas y asignaciones se almacenan en una base de datos MySQL, lo que garantiza una estructura sólida para manejar la información de manera segura y escalable.</li>
+                        </ul>
+                        <h3 class="h5">Frontend:</h3>
+                        <ul>
+                            <li><strong>HTML, CSS y JavaScript:</strong> La interfaz de la aplicación está desarrollada con HTML para la estructura, CSS para los estilos y JavaScript para la funcionalidad interactiva. Esto asegura una experiencia fluida y atractiva para los usuarios.</li>
+                            <li><strong>Bootstrap:</strong> Utilizamos Bootstrap como framework de diseño para lograr un estilo moderno y responsivo en toda la aplicación, adaptando la interfaz a diferentes dispositivos y resoluciones de pantalla.</li>
+                            <li><strong>Librería FullCalendar:</strong> El calendario que ves en la aplicación es generado utilizando la librería FullCalendar, que permite visualizar las tareas y asignaciones de una manera organizada y fácil de gestionar.</li>
+                        </ul>
+                    </div>
 
-                <p>Pero nuestro verdadero objetivo va más allá de solo organizar tu agenda. Queremos que, a través de nuestra aplicación, logres optimizar tu rendimiento diario, buscando siempre mejorar tu productividad y puntualidad. Creemos que cuando tienes el control de tus actividades, no solo eres más eficiente, sino que también cultivas el hábito del éxito. Con cada tarea completada y cada día bien organizado, estarás más cerca de convertir tus metas en realidad.</p>
+                    <!-- Objetivo de la Aplicación -->
+                    <div id="objetivo-aplicacion" class="section" style="display: none;">
+                        <h2 class="h4 text-primary">Objetivo de la Aplicación</h2>
+                        <p>Nuestra aplicación de cronograma está diseñada para ayudarte a tomar el control de tus tareas personales y profesionales de manera simple y eficiente. Ya sea una próxima reunión, una tarea importante o un evento personal, nuestra herramienta te permitirá gestionar cada asignación y mantenerte al día con tus compromisos.</p>
 
-                <!-- Imagen para el objetivo de la aplicación -->
-                <div class="image-container">
-                    <img src="educa.jpg" alt="Imagen representativa del objetivo" class="img-fluid">
+                        <p>Pero nuestro verdadero objetivo va más allá de solo organizar tu agenda. Queremos que, a través de nuestra aplicación, logres optimizar tu rendimiento diario, buscando siempre mejorar tu productividad y puntualidad. Creemos que cuando tienes el control de tus actividades, no solo eres más eficiente, sino que también cultivas el hábito del éxito. Con cada tarea completada y cada día bien organizado, estarás más cerca de convertir tus metas en realidad.</p>
+
+                        <!-- Imagen para el objetivo de la aplicación -->
+                        <div class="image-container">
+                            <img src="educa.jpg" alt="Imagen representativa del objetivo" class="img-fluid">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -121,5 +111,6 @@
     <!-- Enlace a Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="/src/docu.js"></script>
+    <script type="module" src="/src/main.js"></script>
 </body>
 </html>
