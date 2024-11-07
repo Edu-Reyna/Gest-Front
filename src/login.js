@@ -1,3 +1,4 @@
+//Funcion que recibe los datos del formulario de login y los envia al backend para iniciar sesion
 loginForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const email = document.getElementById('email').value;

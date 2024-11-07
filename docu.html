@@ -19,13 +19,13 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="index.html">Tareas</a>
+                        <a class="nav-link " href="index.html">Tareas</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="calendar.html">Calendario</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="docu.html">Documentación</a>
+                        <a class="nav-link active" href="docu.html">Documentación</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#" id="logoutBtn">Logout</a>
@@ -45,6 +45,7 @@
                         <button class="btn btn-primary mb-2" onclick="showContent('area-ayuda')">Área de Ayuda</button>
                         <button class="btn btn-primary mb-2" onclick="showContent('tecnologias-utilizadas')">Tecnologías Utilizadas</button>
                         <button class="btn btn-primary mb-2" onclick="showContent('objetivo-aplicacion')">Objetivo de la Aplicación</button>
+                        <button class="btn btn-primary mb-2" onclick="showContent('recursos')">Recursos</button>
                     </div>
                 </div>
             </div>
@@ -97,10 +98,68 @@
                         <p>Nuestra aplicación de cronograma está diseñada para ayudarte a tomar el control de tus tareas personales y profesionales de manera simple y eficiente. Ya sea una próxima reunión, una tarea importante o un evento personal, nuestra herramienta te permitirá gestionar cada asignación y mantenerte al día con tus compromisos.</p>
 
                         <p>Pero nuestro verdadero objetivo va más allá de solo organizar tu agenda. Queremos que, a través de nuestra aplicación, logres optimizar tu rendimiento diario, buscando siempre mejorar tu productividad y puntualidad. Creemos que cuando tienes el control de tus actividades, no solo eres más eficiente, sino que también cultivas el hábito del éxito. Con cada tarea completada y cada día bien organizado, estarás más cerca de convertir tus metas en realidad.</p>
+                        
+                        <h2 class="h4 text-primary">Presupuesto</h2>
+                        <div class="table-responsive">
+                            <table class="table table-striped table-hover">
+                                <thead class="table-primary" style="background-color: #007bff; color: white;">
+                                    <tr>
+                                        <th scope="col">Etapa</th>
+                                        <th scope="col">Descripción</th>
+                                        <th scope="col">Precios</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Planeación y Diseño</td>
+                                        <td>Definición de requerimientos y diseño de interfaz</td>
+                                        <td>$500</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Desarrollo Backend</td>
+                                        <td>Configuración de Spring Boot y lógica de negocio</td>
+                                        <td>$1,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Desarrollo Frontend</td>
+                                        <td>HTML, CSS, JavaScript, integración de Bootstrap y FullCalendar</td>
+                                        <td>$1,000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Integración de FullCalendar</td>
+                                        <td>Configuración para visualizar tareas y fechas en calendario</td>
+                                        <td>$500</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Pruebas y debugging</td>
+                                        <td>Asegurar la funcionalidad en varios dispositivos y navegadores</td>
+                                        <td>$500</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Despliegue y Mantenimiento</td>
+                                        <td>Configuración en servidor y soporte post-lanzamiento</td>
+                                        <td>$300</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
 
-                        <!-- Imagen para el objetivo de la aplicación -->
-                        <div class="image-container">
-                            <img src="educa.jpg" alt="Imagen representativa del objetivo" class="img-fluid">
+                    <div id="recursos" class="section" style="display: none;">
+                        <h2 class="h4 text-primary">Recursos</h2>
+                        <div class="d-flex justify-content-around">
+                            <a href="https://github.com/Edu-Reyna/Gest-Front" target="_blank">
+                                <img src="./img/f2.jpg" alt="Frontend" class="img-thumbnail" style="width: 150px;">
+                                <p class="text-center">Frontend</p>
+                            </a>
+                            <a href="https://github.com/Edu-Reyna/Gestion" target="_blank">
+                                <img src="./img/b2.jpg" alt="Backend" class="img-thumbnail" style="width: 150px;">
+                                <p class="text-center">Backend</p>
+                            </a>
+                            <a href="https://www.figma.com/design/4FwwxILhkBC899SijWkfSI/Wireframe-GP?node-id=0-1&node-type=canvas" target="_blank">
+                                <img src="./img/fig.png" alt="Figma" class="img-thumbnail" style="width: 150px;">
+                                <p class="text-center">Figma</p>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -108,8 +167,6 @@
         </div>
     </div>
 
-    <!-- Enlace a Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="/src/docu.js"></script>
     <script type="module" src="/src/main.js"></script>
 </body>

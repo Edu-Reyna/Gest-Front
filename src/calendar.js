@@ -1,9 +1,9 @@
-
 import { Calendar } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import listPlugin from '@fullcalendar/list';
 
+//Funcion para cargar las tareas en el calendario 
 document.addEventListener('DOMContentLoaded', function() {
     const calendarEl = document.getElementById('calendar');
     const calendar = new Calendar(calendarEl, {
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
             center: 'title',
             right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
         },
-        themeSystem: 'bootstrap', // Usar el tema de Bootstrap
+        themeSystem: 'bootstrap',
         events: [],
         
         aspectRatio: 2
@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', function() {
     obtenerTareasParaCalendario(calendar);
 });
 
+//Funcion para obtener las tareas del backend
 async function obtenerTareasParaCalendario(calendar) {
     const userId = localStorage.getItem('userId');
     if (!userId) return;

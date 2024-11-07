@@ -1,5 +1,6 @@
 let tareas = [];
 
+//Funcion para obtener los datos del formulario de tareas y enviarlos al backend para guardarlos o actualizarlos
 export function initTasks() {
     const taskForm = document.getElementById('taskForm');
 
@@ -74,6 +75,7 @@ export function initTasks() {
     }
 }        
 
+//Funcion para obtener las tareas del backend
 async function obtenerTareas() {
     const userId = localStorage.getItem('userId');
     if (!userId) return;
@@ -106,6 +108,7 @@ async function obtenerTareas() {
     }
 }
 
+//Funcion para llenar la tabla con las tareas
 function mostrarTareas(data) {
     console.log(data);
     const tabla = document.getElementById('cuerpo');
@@ -129,6 +132,7 @@ function mostrarTareas(data) {
     });
 }
 
+//Funcion para cargar las categorias del estudiante especifico
 async function loadCategories() {
     const userId = localStorage.getItem('userId');
     const categorySelect = document.getElementById('taskCategory');
@@ -164,6 +168,7 @@ async function loadCategories() {
     }
 }
 
+//Funcion para mostrar mensajes 
 function showMessage(element, message) {
     if (!element) return;
     
@@ -175,6 +180,7 @@ function showMessage(element, message) {
     }, 3000);
 }
 
+//Funcion para borrar una tarea del backend mandandole el id 
 window.borrarTarea = async function(id) {
     try {
         const response = await fetch(`http://localhost:8080/tareas/eliminar/${id}`, {
@@ -196,6 +202,7 @@ window.borrarTarea = async function(id) {
     }
 }
 
+//Funcion para marcar una tarea como completada o viceversa
 window.marcarTareaCompletada = async function(id) {
     try {
         const response = await fetch(`http://localhost:8080/tareas/cambiarEstado/${id}`, {
@@ -216,6 +223,7 @@ window.marcarTareaCompletada = async function(id) {
     }
 }
 
+//Funcion para editar una tarea en el backend mandandole los datos de la tarea
 window.editarTarea = async function(id, titulo, fechaFin, prioridad, categoriaId) {
     document.getElementById('taskId').value = id; 
     document.getElementById('taskTitle').value = titulo;
@@ -224,22 +232,32 @@ window.editarTarea = async function(id, titulo, fechaFin, prioridad, categoriaId
     document.getElementById('taskCategory').value = categoriaId;
 }
     
+let ordenAscendenteCategoria = true;
+let ordenAscendentePrioridad = true;
 
+// Función para ordenar por categoría
 window.ordenarPorCategoria = function() {
     const tareasOrdenadas = tareas.slice().sort((a, b) => {
-        return a.categoria.tipo_categoria.localeCompare(b.categoria.tipo_categoria);
+        return ordenAscendenteCategoria 
+            ? a.categoria.tipo_categoria.localeCompare(b.categoria.tipo_categoria)
+            : b.categoria.tipo_categoria.localeCompare(a.categoria.tipo_categoria);
     });
     mostrarTareas(tareasOrdenadas);
+    ordenAscendenteCategoria = !ordenAscendenteCategoria;
 };
 
 // Función para ordenar por prioridad
 window.ordenarPorPrioridad = function() {
     const tareasOrdenadas = tareas.slice().sort((a, b) => {
-        return a.prioridad.localeCompare(b.prioridad);
+        return ordenAscendentePrioridad 
+            ? a.prioridad.localeCompare(b.prioridad)
+            : b.prioridad.localeCompare(a.prioridad);
     });
     mostrarTareas(tareasOrdenadas);
+    ordenAscendentePrioridad = !ordenAscendentePrioridad;
 };
 
+//Funcion para anadir una nueva categoria al estudiante especifico
 async function anadirCategoria() {
     const userId = localStorage.getItem('userId');
 

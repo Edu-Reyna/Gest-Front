@@ -1,3 +1,4 @@
+//Funcion para registrar un usuario tomando los datos del formulario de registro y enviandolos al backend
 document.addEventListener('DOMContentLoaded', () => {
     const registerForm = document.getElementById('registrationForm');
     const errorMessage = document.getElementById('errorMessage');
