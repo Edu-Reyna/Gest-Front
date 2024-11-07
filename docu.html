@@ -35,27 +35,29 @@
         </div>
     </nav>
 
-    <div class="container mt-4">
+    <div class="container mt-5">
         <div class="row">
             <!-- Sidebar -->
             <div class="col-md-3">
-                <div class="bg-light p-3 rounded">
-                    <h2 class="h5 text-primary">Documentación</h2>
+                <div class="bg-luz p-3 rounded">
+                    <div class="mb-3 bg-black text-white p-2 rounded">
+                        <h2 class="h5 text-luz text-center">Documentación</h2>
+                    </div>                    
                     <div class="btn-group d-flex flex-column">
-                        <button class="btn btn-primary mb-2" onclick="showContent('area-ayuda')">Área de Ayuda</button>
-                        <button class="btn btn-primary mb-2" onclick="showContent('tecnologias-utilizadas')">Tecnologías Utilizadas</button>
-                        <button class="btn btn-primary mb-2" onclick="showContent('objetivo-aplicacion')">Objetivo de la Aplicación</button>
-                        <button class="btn btn-primary mb-2" onclick="showContent('recursos')">Recursos</button>
+                        <button class="btn btn-secondary mb-2" onclick="showContent('area-ayuda')">Área de Ayuda</button>
+                        <button class="btn btn-secondary mb-2" onclick="showContent('tecnologias-utilizadas')">Tecnologías Utilizadas</button>
+                        <button class="btn btn-secondary mb-2" onclick="showContent('objetivo-aplicacion')">Objetivo de la Aplicación</button>
+                        <button class="btn btn-secondary mb-2" onclick="showContent('recursos')">Recursos</button>
                     </div>
                 </div>
             </div>
 
             <!-- Content Area -->
             <div class="col-md-9">
-                <div class="bg-light p-3 rounded">
+                <div class="bg-luz p-3 rounded">
                     <!-- Área de Ayuda -->
                     <div id="area-ayuda" class="section" style="display: block;">
-                        <h2 class="h4 text-primary">Área de Ayuda</h2>
+                        <h2 class="h4 text-black text-center">Área de Ayuda</h2>
                         <p>Aquí te explicaremos cómo utilizar todas las funcionalidades de esta aplicación para gestionar tus tareas y asignaciones de manera eficiente.</p>
                         <ol>
                             <li><strong>Crear una Nueva Tarea</strong>
@@ -78,7 +80,7 @@
 
                     <!-- Tecnologías Utilizadas -->
                     <div id="tecnologias-utilizadas" class="section" style="display: none;">
-                        <h2 class="h4 text-primary">Tecnología Utilizada en la Aplicación</h2>
+                        <h2 class="h4 text-black text-center">Tecnología Utilizada en la Aplicación</h2>
                         <h3 class="h5">Backend:</h3>
                         <ul>
                             <li><strong>Java con Spring Boot:</strong> Usamos el framework Spring Boot para desarrollar la lógica del backend de la aplicación. Esto nos permite gestionar las solicitudes de los usuarios, procesar los datos y comunicarnos con la base de datos de manera eficiente.</li>
@@ -94,12 +96,12 @@
 
                     <!-- Objetivo de la Aplicación -->
                     <div id="objetivo-aplicacion" class="section" style="display: none;">
-                        <h2 class="h4 text-primary">Objetivo de la Aplicación</h2>
+                        <h2 class="h4 text-black text-center">Objetivo de la Aplicación</h2>
                         <p>Nuestra aplicación de cronograma está diseñada para ayudarte a tomar el control de tus tareas personales y profesionales de manera simple y eficiente. Ya sea una próxima reunión, una tarea importante o un evento personal, nuestra herramienta te permitirá gestionar cada asignación y mantenerte al día con tus compromisos.</p>
 
                         <p>Pero nuestro verdadero objetivo va más allá de solo organizar tu agenda. Queremos que, a través de nuestra aplicación, logres optimizar tu rendimiento diario, buscando siempre mejorar tu productividad y puntualidad. Creemos que cuando tienes el control de tus actividades, no solo eres más eficiente, sino que también cultivas el hábito del éxito. Con cada tarea completada y cada día bien organizado, estarás más cerca de convertir tus metas en realidad.</p>
                         
-                        <h2 class="h4 text-primary">Presupuesto</h2>
+                        <h2 class="h4 text-black text-center">Presupuesto</h2>
                         <div class="table-responsive">
                             <table class="table table-striped table-hover">
                                 <thead class="table-primary" style="background-color: #007bff; color: white;">
@@ -146,19 +148,19 @@
                     </div>
 
                     <div id="recursos" class="section" style="display: none;">
-                        <h2 class="h4 text-primary">Recursos</h2>
+                        <h2 class="h4 text-black text-center">Recursos</h2>
                         <div class="d-flex justify-content-around">
                             <a href="https://github.com/Edu-Reyna/Gest-Front" target="_blank">
                                 <img src="./img/f2.jpg" alt="Frontend" class="img-thumbnail" style="width: 150px;">
-                                <p class="text-center">Frontend</p>
+                                <p class="text-black text-center">Frontend</p>
                             </a>
                             <a href="https://github.com/Edu-Reyna/Gestion" target="_blank">
                                 <img src="./img/b2.jpg" alt="Backend" class="img-thumbnail" style="width: 150px;">
-                                <p class="text-center">Backend</p>
+                                <p class="text-black text-center">Backend</p>
                             </a>
                             <a href="https://www.figma.com/design/4FwwxILhkBC899SijWkfSI/Wireframe-GP?node-id=0-1&node-type=canvas" target="_blank">
                                 <img src="./img/fig.png" alt="Figma" class="img-thumbnail" style="width: 150px;">
-                                <p class="text-center">Figma</p>
+                                <p class="text-black text-center">Figma</p>
                             </a>
                         </div>
                     </div>
